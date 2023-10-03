@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 681b6bf03d0532c46a8d69e8336189a0, type: 3}
+  m_Name: Build House_lv3_SO
+  m_EditorClassIdentifier: 
+  nameBuilding: House lv3
+  pref:
+  - {fileID: 5830973669414316922, guid: 3817ebba69520af41bc2bf952a737447, type: 3}
+  level: 3

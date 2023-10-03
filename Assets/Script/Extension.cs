@@ -8,6 +8,7 @@ public static class Extension
     public static Vector3  MousePosition()
     {
         Vector3 mouseInput = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mouseInput.z = 0;
         return mouseInput;
     }
 }

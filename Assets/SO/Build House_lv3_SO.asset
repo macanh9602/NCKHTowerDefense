@@ -16,3 +16,4 @@ MonoBehaviour:
   pref:
   - {fileID: 5830973669414316922, guid: 3817ebba69520af41bc2bf952a737447, type: 3}
   level: 3
+  costToBuildOrUpgrate: 3

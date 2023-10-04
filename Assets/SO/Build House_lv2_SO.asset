@@ -18,3 +18,4 @@ MonoBehaviour:
   - {fileID: 3709848582294672690, guid: b0ebee7987341f14ca1687ed187e7286, type: 3}
   - {fileID: 3159953580582887091, guid: 33dabd658f4f9dc49bb445d9c97e4939, type: 3}
   level: 2
+  costToBuildOrUpgrate: 2

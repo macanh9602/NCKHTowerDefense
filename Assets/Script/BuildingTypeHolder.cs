@@ -4,19 +4,23 @@ using UnityEngine;
 
 public class BuildingTypeHolder : MonoBehaviour
 {
-    public BuildingTypeSO buildingType;
-    bool IsPress = true;
+    [SerializeField] BuildingTypeSO buildingType;
+    [SerializeField] ResourceSO resource;
+    [SerializeField] bool IsPress = false;
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
 
-            Debug.Log("Halo");
-            if (Input.GetKey(KeyCode.Space) && IsPress)
+            if (Input.GetKey(KeyCode.Space) && IsPress is false)
             {
-               IsPress = false;
-                Debug.Log("touch");
+               IsPress = true;
+                //tao ra toa nha tu ham trong BuildingManager
                 BuildingManager.Instance.Build(buildingType, this.transform.position);
+                CoinManager.Instance.UseMoneyToBuild(resource, buildingType);
+                //tru tien build 
+                //tao effect build
+                
             }
         }
     }

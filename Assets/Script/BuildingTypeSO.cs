@@ -8,4 +8,5 @@ public class BuildingTypeSO : ScriptableObject
     public string nameBuilding;
     public Transform[] pref;
     public int level;
+    public int costToBuildOrUpgrate;
 }

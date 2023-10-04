@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3159953580582887091}
   - component: {fileID: 6962459102415128676}
+  - component: {fileID: 6030417638360158627}
   m_Layer: 0
   m_Name: Build house lv2 (3)
   m_TagString: Untagged
@@ -70,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 613165219
+  m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: 1487828598, guid: 6d52d7952b6bc044dbe19e4b2a22b2f6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -84,3 +85,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6030417638360158627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6599396633934003616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a71911e71184b6a4e8b8100271c8c938, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinData:
+    resource: {fileID: 11400000, guid: 6ec2887f745b5594093d8e8253f4781e, type: 2}
+    timeMax: 2

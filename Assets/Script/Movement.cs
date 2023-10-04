@@ -30,17 +30,4 @@ public class Movement : MonoBehaviour
             transform.rotation = Quaternion.Euler(0,180,0);
         }
     }
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if (collision.tag == "PosBuild")
-    //    {
-    //        if (Input.GetKey(KeyCode.Space))
-    //        {
-    //            Debug.Log("touch");
-    //            BuildingTypeSO buildingType = collision.gameObject.GetComponent<BuildingTypeHolder>().buildingType;
-    //            Vector3 buildingPos = collision.transform.position;
-    //            BuildingManager.Instance.Build(buildingType, buildingPos);
-    //        }
-    //    }
-    //}
 }

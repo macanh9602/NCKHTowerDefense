@@ -9,4 +9,13 @@ public class BuildingTypeSO : ScriptableObject
     public Transform[] pref;
     public int level;
     public int costToBuildOrUpgrate;
+    public int health;
+    
+}
+public class DefenderBuilding
+{
+    public int damage;
+    public int armor;
+    public int speedATK;
+    public int radiusATK;
 }

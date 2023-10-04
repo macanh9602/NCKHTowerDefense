@@ -5,7 +5,7 @@ using UnityEngine;
 public class BuildingTypeHolder : MonoBehaviour
 {
     [SerializeField] BuildingTypeSO buildingType;
-    [SerializeField] ResourceSO resource;
+    ResourceSO resource;
     [SerializeField] bool IsPress = false;
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -17,6 +17,7 @@ public class BuildingTypeHolder : MonoBehaviour
                IsPress = true;
                 //tao ra toa nha tu ham trong BuildingManager
                 BuildingManager.Instance.Build(buildingType, this.transform.position);
+                resource = CoinManager.Instance.GetResourceSO();
                 CoinManager.Instance.UseMoneyToBuild(resource, buildingType);
                 //tru tien build 
                 //tao effect build

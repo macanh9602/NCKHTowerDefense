@@ -9,10 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 681b6bf03d0532c46a8d69e8336189a0, type: 3}
-  m_Name: TowerDefense_1_SO
+  m_Script: {fileID: 11500000, guid: b6d8a025e0eabf847ac26825577799e8, type: 3}
+  m_Name: Farm House lv3 SO
   m_EditorClassIdentifier: 
-  nameBuilding: 
-  pref: []
-  level: 0
-  costToBuildOrUpgrate: 0
+  nameBuilding: House3
+  pref:
+  - {fileID: 5830973669414316922, guid: 3817ebba69520af41bc2bf952a737447, type: 3}
+  level: 3
+  costToBuildOrUpgrate: 3
+  health: 200

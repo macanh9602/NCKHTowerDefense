@@ -17,7 +17,11 @@ public class CoinGenerator : MonoBehaviour
         if (time < 0)
         {
             time = coinData.timeMax;
-            CoinManager.Instance.addCoin(coinData.resource,buildingType);
+            if(coinData.resource != null)
+            {
+                CoinManager.Instance.addCoin(coinData.resource, buildingType);
+            }
+            
         }
     }
 }

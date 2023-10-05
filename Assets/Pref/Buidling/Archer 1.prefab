@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4380068056605237826}
   - component: {fileID: 7990200935994983909}
+  - component: {fileID: 3326828134286166245}
   m_Layer: 0
   m_Name: Archer 1
   m_TagString: Untagged
@@ -70,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 613165219
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -1227546456, guid: bee908ec45dc7024587d100d366c01eb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -84,3 +85,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3326828134286166245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5615927608100278674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a71911e71184b6a4e8b8100271c8c938, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildingType: {fileID: 0}
+  coinData:
+    resource: {fileID: 0}
+    timeMax: 2

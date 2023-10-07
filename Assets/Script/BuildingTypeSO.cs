@@ -7,10 +7,11 @@ using UnityEngine;
 public abstract class BuildingTypeSO : ScriptableObject
 {
     public string nameBuilding;
-    public Transform[] pref;
+    public Transform pref;
     public int level;
     public int costToBuildOrUpgrate;
     public int health;
+    public Sprite[] sprite;
 
     //    public List<DefenderBuilding> defenders = new List<DefenderBuilding>();
     //    public List<FarmBuilding> farm = new List<FarmBuilding>();

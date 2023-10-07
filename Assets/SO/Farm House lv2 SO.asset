@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Farm House lv2 SO
   m_EditorClassIdentifier: 
   nameBuilding: House2
-  pref:
-  - {fileID: 1241617589594836790, guid: 50807f19818d19c43aa5c87038ef7e12, type: 3}
-  - {fileID: 3709848582294672690, guid: b0ebee7987341f14ca1687ed187e7286, type: 3}
-  - {fileID: 3159953580582887091, guid: 33dabd658f4f9dc49bb445d9c97e4939, type: 3}
+  pref: {fileID: 1241617589594836790, guid: 50807f19818d19c43aa5c87038ef7e12, type: 3}
   level: 2
   costToBuildOrUpgrate: 2
   health: 150
+  sprite:
+  - {fileID: -1769183074, guid: 6d52d7952b6bc044dbe19e4b2a22b2f6, type: 3}
+  - {fileID: 1857523076, guid: 6d52d7952b6bc044dbe19e4b2a22b2f6, type: 3}
+  - {fileID: 1487828598, guid: 6d52d7952b6bc044dbe19e4b2a22b2f6, type: 3}

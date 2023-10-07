@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Farm House lv3 SO
   m_EditorClassIdentifier: 
   nameBuilding: House3
-  pref:
-  - {fileID: 5830973669414316922, guid: 3817ebba69520af41bc2bf952a737447, type: 3}
+  pref: {fileID: 5830973669414316922, guid: 3817ebba69520af41bc2bf952a737447, type: 3}
   level: 3
   costToBuildOrUpgrate: 3
   health: 200
+  sprite:
+  - {fileID: -169620764, guid: 6d52d7952b6bc044dbe19e4b2a22b2f6, type: 3}

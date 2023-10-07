@@ -134,5 +134,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingType: {fileID: 11400000, guid: 52aa2a7ba79ea1c4ab86581e0aba0e29, type: 2}
-  resource: {fileID: 11400000, guid: 6ec2887f745b5594093d8e8253f4781e, type: 2}
   IsPress: 0
+  IsFirstTime: 0

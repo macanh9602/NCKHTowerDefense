@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: Build Defense Tower SO
   m_EditorClassIdentifier: 
   nameBuilding: Tower Defense
-  pref:
-  - {fileID: 4380068056605237826, guid: 7c47d53afd30a2d468efb582f7bf2e59, type: 3}
+  pref: {fileID: 4380068056605237826, guid: 7c47d53afd30a2d468efb582f7bf2e59, type: 3}
   level: 1
   costToBuildOrUpgrate: 3
   health: 300
+  sprite:
+  - {fileID: -1227546456, guid: bee908ec45dc7024587d100d366c01eb, type: 3}
   atk: 20
   armor: 35
   radiusATK: 5

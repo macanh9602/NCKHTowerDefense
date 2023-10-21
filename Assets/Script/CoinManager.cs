@@ -31,10 +31,17 @@ public class CoinManager : MonoBehaviour
     }
     public void UseMoneyToBuild(ResourceSO resource, BuildingTypeSO buildingType)
     {
-        _coin[resource] -= buildingType.costToBuildOrUpgrate;
+        _coin[resource] -= buildingType.costToBuildOrUpgrate;       
     }
     public ResourceSO GetResourceSO()
     {
         return resource;
+    }
+    public bool isEnoughMoney(ResourceSO resource, BuildingTypeSO buildingType)
+    {
+        if (_coin[resource] - buildingType.costToBuildOrUpgrate >= 0) 
+
+        return true;
+        else return false;
     }
 }

@@ -24,14 +24,18 @@ public class BuildingTypeHolder : MonoBehaviour
                 if (Input.GetKey(KeyCode.Space))
                 {
                     IsPress = true;
-                    //tao ra toa nha tu ham trong BuildingManager
-                    BuildingManager.Instance.Build(buildingType, this.transform.position- new Vector3(0,0.2f,0));
-                    transform.Find("sprite").gameObject.SetActive(false);
                     resource = CoinManager.Instance.GetResourceSO();
-                    //tru tien build 
-                    CoinManager.Instance.UseMoneyToBuild(resource, buildingType);
-                    //tao effect build
-
+                    //check du tien khong
+                    if (CoinManager.Instance.isEnoughMoney(resource, buildingType) == true)
+                    {
+                        //tao ra toa nha tu ham trong BuildingManager
+                        BuildingManager.Instance.Build(buildingType, this.transform.position);
+                        transform.Find("sprite").gameObject.SetActive(false);
+                        //tru tien build 
+                        CoinManager.Instance.UseMoneyToBuild(resource, buildingType);
+                        //get effect build
+                    }
+                    else Debug.Log("ko du tien");
                 }
             }
             else

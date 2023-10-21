@@ -15,6 +15,7 @@ public class BuildingManager : MonoBehaviour
     public class OnChangeBuildingEventArg : EventArgs
     {
         public BuildingTypeSO BuildingTypeSO;
+        public BuildingTypeHolder BuildingTypeHolder;
     }
     private void Start()
     {
@@ -41,7 +42,11 @@ public class BuildingManager : MonoBehaviour
     public void setCurrentBuildingTypeSO(BuildingTypeSO building)
     {
         currentBuildingTypeSO = building;
-        OnChangeBuilding?.Invoke(this, new OnChangeBuildingEventArg { BuildingTypeSO = currentBuildingTypeSO });
+        OnChangeBuilding?.Invoke(this, new OnChangeBuildingEventArg
+        {
+            BuildingTypeSO = currentBuildingTypeSO,
+            BuildingTypeHolder = currentBuildingTypeHolder
+        }) ;
     } 
     public BuildingTypeHolder GetBuildingTypeHolder()
     {

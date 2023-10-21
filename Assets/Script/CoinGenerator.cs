@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//pref building
 public class CoinGenerator : MonoBehaviour
 {
     public BuildingTypeSO buildingType;
@@ -13,15 +13,19 @@ public class CoinGenerator : MonoBehaviour
     }
     private void Update()
     {
-        time -= Time.deltaTime;
-        if (time < 0)
+        if (buildingType.nameBuilding == "House")
         {
-            time = coinData.timeMax;
-            if(coinData.resource != null)
+            time -= Time.deltaTime;
+            if (time < 0)
             {
-                CoinManager.Instance.addCoin(coinData.resource, buildingType);
+                time = coinData.timeMax;
+                if (coinData.resource != null)
+                {
+                    CoinManager.Instance.addCoin(coinData.resource, buildingType);
+                }
+
             }
-            
         }
+        
     }
 }

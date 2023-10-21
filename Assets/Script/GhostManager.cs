@@ -15,9 +15,25 @@ public class GhostManager : MonoBehaviour
     private void Instance_OnChangeBuilding(object sender, BuildingManager.OnChangeBuildingEventArg e)
     {
         e.BuildingTypeSO = BuildingManager.Instance.GetCurrentBuildingTypeSO();
+        Debug.Log(e.BuildingTypeHolder);
         if(e.BuildingTypeSO != null)
         {
-            Show(e.BuildingTypeSO);
+            int index = 0;
+            if(e.BuildingTypeHolder = BuildingManager.Instance.GetBuildingTypeHolder())
+            {
+                if(index == 0)
+                {
+                    Show(e.BuildingTypeSO);
+                    index = 1;
+                }
+                else
+                {
+                    Hide();
+                }
+            }
+
+            
+
         }
         else
         {

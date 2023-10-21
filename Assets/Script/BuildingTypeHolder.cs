@@ -8,8 +8,8 @@ public class BuildingTypeHolder : MonoBehaviour
     [SerializeField] BuildingTypeSO buildingType;
     ResourceSO resource;
     [SerializeField] bool IsPress = false;
-    public event EventHandler OnStandBuilding;
-
+    [SerializeField] GhostManager ghostManager;
+    //public event EventHandler OnStandBuilding;
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.tag == "Player")
@@ -20,12 +20,13 @@ public class BuildingTypeHolder : MonoBehaviour
 
            if(IsPress is false)
             {
-                OnStandBuilding?.Invoke(this, EventArgs.Empty);
+                //OnStandBuilding?.Invoke(this, EventArgs.Empty);
                 if (Input.GetKey(KeyCode.Space))
                 {
                     IsPress = true;
                     //tao ra toa nha tu ham trong BuildingManager
-                    BuildingManager.Instance.Build(buildingType, this.transform.position);
+                    BuildingManager.Instance.Build(buildingType, this.transform.position- new Vector3(0,0.2f,0));
+                    transform.Find("sprite").gameObject.SetActive(false);
                     resource = CoinManager.Instance.GetResourceSO();
                     //tru tien build 
                     CoinManager.Instance.UseMoneyToBuild(resource, buildingType);
@@ -35,7 +36,7 @@ public class BuildingTypeHolder : MonoBehaviour
             }
             else
             {
-                OnStandBuilding = null;
+                //OnStandBuilding = null;
             }
         }
        
@@ -45,7 +46,7 @@ public class BuildingTypeHolder : MonoBehaviour
         if (collision.tag == "Player")
         {
             BuildingManager.Instance.setCurrentBuildingTypeSO(null);
-            OnStandBuilding = null;
+            //OnStandBuilding = null;
         }
     }
     

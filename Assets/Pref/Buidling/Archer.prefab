@@ -95,7 +95,6 @@ GameObject:
   - component: {fileID: 2690330695630922711}
   - component: {fileID: -4996556400218750482}
   - component: {fileID: 3131435853326214380}
-  - component: {fileID: -4865714699379492879}
   m_Layer: 0
   m_Name: Archer
   m_TagString: Untagged
@@ -189,27 +188,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &-4865714699379492879
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3034630073363589033}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 603d52986f0e93644b1487f51a7cc899, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4785236097377277355
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,18 +18,18 @@ public class GhostManager : MonoBehaviour
         //Debug.Log(e.BuildingTypeHolder);
         if(e.BuildingTypeSO != null)
         {
-            int index = 0;
+            //int index = 0;
             if(e.BuildingTypeHolder = BuildingManager.Instance.GetBuildingTypeHolder())
             {
-                if(index == 0)
-                {
+                //if(index == 0)
+                //{
                     Show(e.BuildingTypeSO);
-                    index = 1;
-                }
-                else
-                {
-                    Hide();
-                }
+                    //index = 1;
+                //}
+                //else
+                //{
+                    //Hide();
+                //}
             }
 
             
@@ -48,18 +48,21 @@ public class GhostManager : MonoBehaviour
 
     public void Show(BuildingTypeSO buildingType)
     {
+        BuildingTypeHolder holder = BuildingManager.Instance.GetBuildingTypeHolder();
+        transform.position = holder.gameObject.transform.position;
+
         transform.gameObject.SetActive(true);
         //sprite trong Child = sprite building pos
         buildingType = BuildingManager.Instance.GetCurrentBuildingTypeSO();
         transform.Find("Ghost").GetComponent<SpriteRenderer>().sprite = buildingType.sprite[0];
+        
         //Set vi tri ghost = vi tri xay dung cong trinh
         //BuildingTypeHolder holder = BuildingManager.Instance.GetBuildingTypeHolder();
         //transform.position = holder.gameObject.transform.position;  
     }
     private void Update()
     {
-        BuildingTypeHolder holder = BuildingManager.Instance.GetBuildingTypeHolder();
-        transform.position = holder.gameObject.transform.position;  
+         
     }
 
 

@@ -19,6 +19,7 @@ MonoBehaviour:
   health: 300
   sprite:
   - {fileID: 788780676, guid: 748b52b8d04cdd144ac174824f4dd8fd, type: 3}
+  timeBuild: 3
   atk: 20
   armor: 35
   radiusATK: 5

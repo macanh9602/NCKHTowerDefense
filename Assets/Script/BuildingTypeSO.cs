@@ -12,6 +12,7 @@ public abstract class BuildingTypeSO : ScriptableObject
     public int costToBuildOrUpgrate;
     public int health;
     public Sprite[] sprite;
+    public float timeBuild;
 
     //    public List<DefenderBuilding> defenders = new List<DefenderBuilding>();
     //    public List<FarmBuilding> farm = new List<FarmBuilding>();

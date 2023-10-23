@@ -11,6 +11,7 @@ public class BuildingManager : MonoBehaviour
     public static BuildingManager Instance { get; private set; }
     BuildingTypeSO currentBuildingTypeSO;
     BuildingTypeHolder currentBuildingTypeHolder;
+    //public BuildingConstruction buildingConstruction;
     public event EventHandler<OnChangeBuildingEventArg> OnChangeBuilding;
     public class OnChangeBuildingEventArg : EventArgs
     {
@@ -34,6 +35,7 @@ public class BuildingManager : MonoBehaviour
         Transform building = Instantiate(buildingType.pref, BuildingPos, Quaternion.identity);
         building.GetComponent<SpriteRenderer>().sprite = buildingType.sprite[Random.Range(0,buildingType.sprite.Length)];
         building.GetComponent<CoinGenerator>().buildingType = buildingType;
+
     }
     public BuildingTypeSO GetCurrentBuildingTypeSO()
     {

@@ -33,6 +33,7 @@ public class BuildingManager : MonoBehaviour
     public void Build(BuildingTypeSO buildingType,Vector3 BuildingPos)
     {
         Transform building = Instantiate(buildingType.pref, BuildingPos, Quaternion.identity);
+        building.SetParent(currentBuildingTypeHolder.gameObject.transform);
         building.GetComponent<SpriteRenderer>().sprite = buildingType.sprite[Random.Range(0,buildingType.sprite.Length)];
         building.GetComponent<CoinGenerator>().buildingType = buildingType;
 

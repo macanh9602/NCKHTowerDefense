@@ -11,6 +11,7 @@ public class BuildingManager : MonoBehaviour
     public static BuildingManager Instance { get; private set; }
     BuildingTypeSO currentBuildingTypeSO;
     BuildingTypeHolder currentBuildingTypeHolder;
+    public GameObject CastleCenter;
     //public BuildingConstruction buildingConstruction;
     public event EventHandler<OnChangeBuildingEventArg> OnChangeBuilding;
     public class OnChangeBuildingEventArg : EventArgs
@@ -23,19 +24,19 @@ public class BuildingManager : MonoBehaviour
         Instance = this;
         //buildingTypeList = Resources.Load<BuildingTypeListSO>("BuildingTypeListSO");
         //buildingTypeSO = buildingTypeList._ListBuilding[0];
-        
+
     }
     private void Update()
     {
-        
+
     }
 
     //xay dung ham sinh ra toa nha
-    public void Build(BuildingTypeSO buildingType,Vector3 BuildingPos)
+    public void Build(BuildingTypeSO buildingType, Vector3 BuildingPos)
     {
         Transform building = Instantiate(buildingType.pref, BuildingPos, Quaternion.identity);
         building.SetParent(currentBuildingTypeHolder.gameObject.transform);
-        building.GetComponent<SpriteRenderer>().sprite = buildingType.sprite[Random.Range(0,buildingType.sprite.Length)];
+        building.GetComponent<SpriteRenderer>().sprite = buildingType.sprite[Random.Range(0, buildingType.sprite.Length)];
         building.GetComponent<CoinGenerator>().buildingType = buildingType;
 
     }
@@ -50,8 +51,8 @@ public class BuildingManager : MonoBehaviour
         {
             BuildingTypeSO = currentBuildingTypeSO,
             BuildingTypeHolder = currentBuildingTypeHolder
-        }) ;
-    } 
+        });
+    }
     public BuildingTypeHolder GetBuildingTypeHolder()
     {
         return currentBuildingTypeHolder;
@@ -60,5 +61,9 @@ public class BuildingManager : MonoBehaviour
     {
         currentBuildingTypeHolder = buildingTypeHolder;
     }
-
+    public Vector3 getCastleCenter()
+    {
+        return CastleCenter.transform.position;
+    }
 }
+

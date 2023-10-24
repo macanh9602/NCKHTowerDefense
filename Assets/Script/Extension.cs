@@ -11,4 +11,11 @@ public static class Extension
         mouseInput.z = 0;
         return mouseInput;
     }
+
+    public static Vector3 RandomPos()
+    {
+        return new Vector3(
+            Random.Range(-1, 1),
+            Random.Range(-1, 1));
+    }
 }

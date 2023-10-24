@@ -8,6 +8,7 @@ public class BuildingHealth : MonoBehaviour
     private float healthMax;
     private float health;
     public event EventHandler OnHealthChange;
+
     private void Awake()
     {
         healthMax = transform.GetComponent<CoinGenerator>().buildingType.health ;
@@ -15,11 +16,11 @@ public class BuildingHealth : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            OnDamage(20f);
-            OnHealthChange?.Invoke(this, EventArgs.Empty);
-        }
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    OnDamage(20f);
+        //    OnHealthChange?.Invoke(this, EventArgs.Empty);
+        //}
     }
     public float getHealthNormalize()
     {
@@ -34,5 +35,9 @@ public class BuildingHealth : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+    public void IsHealthChange()
+    {
+        OnHealthChange?.Invoke(this, EventArgs.Empty);
     }
 }

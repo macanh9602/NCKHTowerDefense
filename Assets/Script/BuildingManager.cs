@@ -23,6 +23,7 @@ public class BuildingManager : MonoBehaviour
         Instance = this;
         //buildingTypeList = Resources.Load<BuildingTypeListSO>("BuildingTypeListSO");
         //buildingTypeSO = buildingTypeList._ListBuilding[0];
+        
     }
     private void Update()
     {

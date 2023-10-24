@@ -5,35 +5,23 @@ using UnityEngine;
 
 public class HealthManager : MonoBehaviour
 {
-    [SerializeField] Transform target;
-    private float healthMax;
-    private float health;
+    [SerializeField] BuildingHealth BuildingHealth;
     private void Start()
     {
-        healthMax = target.GetComponent<CoinGenerator>().buildingType.health;
-        health = healthMax;
-    }
-    private void Update()
-    {
-        if(Input.GetMouseButtonDown(0))
-        {
-            ReceiveDamage(20f);
-           
-        }
-        if(health <= 0)
-        {
-            Destroy(target);
-        }
-        transform.Find("Bar").GetComponent<Transform>().localScale =  new Vector3( getHealthNormalize(),1,1);
-    }
-    public void ReceiveDamage(float damage)
-    {
-        health -= damage;
+        BuildingHealth.OnHealthChange += BuildingHealth_OnHealthChange;
     }
 
-    public float getHealthNormalize()
+    private void BuildingHealth_OnHealthChange(object sender, System.EventArgs e)
     {
-        return health/healthMax;
+        EditHealthBar();
     }
+
+    public void EditHealthBar()
+    {
+        
+        transform.Find("Bar").localScale =  new Vector3( BuildingHealth.getHealthNormalize(),1,1);
+    }
+
+
 
 }

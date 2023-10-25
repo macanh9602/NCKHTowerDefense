@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -11,14 +12,15 @@ public class Enemy : MonoBehaviour
         Transform prfEnemy = Resources.Load<Transform>("Ghost").transform;
         Transform _enemy = Instantiate(prfEnemy, position, Quaternion.identity);
         Enemy enemy = _enemy.gameObject.GetComponent<Enemy>();
-        if (BuildingManager.Instance.getCastleCenter() != null)
-        {
-            enemy.FlipFace(_enemy);
-        }
+        //if (BuildingManager.Instance.getCastleCenter() != null)
+        //{
+        enemy.CheckTarget();
+        enemy.FlipFace(_enemy);
+        //}
         return enemy;
     }
 
-    private Vector3 target;
+    private Transform target;
     private void Start ()
     {
         //if (BuildingManager.Instance.getCastleCenter() != null)
@@ -26,23 +28,38 @@ public class Enemy : MonoBehaviour
         //    target = BuildingManager.Instance.getCastleCenter().transform.position;
         //    Debug.Log(target);
         //}
-        Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position,20f,LayerMask.GetMask("Building"));
-        if(collider.Length >0)
-        {
-            target = collider[0].gameObject.transform.position;
-        }
-        
-        Debug.Log(collider[0].gameObject.name);
+        //CheckTarget();
 
     }
-    
+
+    private void CheckTarget()
+    {
+        Collider2D[] collider = Physics2D.OverlapCircleAll(transform.position, 30f, LayerMask.GetMask("Building"));
+        if (collider.Length > 0)
+        {
+            target = collider[0].gameObject.transform;
+        }
+        else
+        {
+            target = transform;
+        }
+
+        Debug.Log(target.gameObject.name);
+    }
+
     private void Update()
     {
         float speed = 0.1f;
         if(target != null)
         {
-            transform.position = Vector3.Lerp(transform.position, target, speed * Time.fixedDeltaTime);
+            transform.position = Vector3.Lerp(transform.position, target.position, speed * Time.fixedDeltaTime);
+            
         }
+        else
+        {
+            CheckTarget();
+        }
+
         // Debug.Log(BuildingManager.Instance.getCastleCenter());     
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -58,7 +75,7 @@ public class Enemy : MonoBehaviour
     }
     public void FlipFace(Transform enemy)
     {
-        if (enemy.position.x - target.x < 0)
+        if (enemy.position.x - target.position.x < 0)
         {
             enemy.gameObject.GetComponent<Transform>().rotation = Quaternion.Euler(0, 180, 0);
         }

@@ -21,6 +21,7 @@ public class Enemy : MonoBehaviour
     }
 
     private Transform target;
+    private Rigidbody2D rb;
     private void Start ()
     {
         //if (BuildingManager.Instance.getCastleCenter() != null)
@@ -29,7 +30,7 @@ public class Enemy : MonoBehaviour
         //    Debug.Log(target);
         //}
         //CheckTarget();
-
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void CheckTarget()
@@ -49,11 +50,12 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        float speed = 0.1f;
+        
         if(target != null)
         {
-            transform.position = Vector3.Lerp(transform.position, target.position, speed * Time.fixedDeltaTime);
-            
+            Vector3 vectorNormalize = (target.position - transform.position).normalized;
+            float speed = 2f;
+            rb.velocity = vectorNormalize * speed;
         }
         else
         {

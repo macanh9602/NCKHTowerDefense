@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 
 public class BuildingManager : MonoBehaviour
 {
+    public LayerMask layer;
     public static BuildingManager Instance { get; private set; }
     BuildingTypeSO currentBuildingTypeSO;
     BuildingTypeHolder currentBuildingTypeHolder;
@@ -61,9 +62,9 @@ public class BuildingManager : MonoBehaviour
     {
         currentBuildingTypeHolder = buildingTypeHolder;
     }
-    public Vector3 getCastleCenter()
+    public GameObject getCastleCenter()
     {
-        return CastleCenter.transform.position;
+        return CastleCenter;
     }
 }
 

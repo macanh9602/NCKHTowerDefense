@@ -10,11 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 630752243768903119}
   - component: {fileID: 6991075785407802423}
+  - component: {fileID: 2389389841084433686}
   - component: {fileID: 6518949756792171019}
   - component: {fileID: 8290507837845570198}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Castle Center
-  m_TagString: Untagged
+  m_TagString: CastleCenter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87,6 +88,51 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &2389389841084433686
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2694411490125030553}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.029405475, y: -0.42147726}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.846774, y: 4.153226}
+    newSize: {x: 3.53, y: 5.15}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.7879632, y: 2.5653343}
+  m_EdgeRadius: 0
 --- !u!114 &6518949756792171019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,9 +169,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 630752243768903119}
     m_Modifications:
+    - target: {fileID: 2025145765391170520, guid: f3da94cc87fa6f94ab26f8e1a06c3f27, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2186178520429883585, guid: f3da94cc87fa6f94ab26f8e1a06c3f27, type: 3}
       propertyPath: m_Name
       value: HealthBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 2186178520429883585, guid: f3da94cc87fa6f94ab26f8e1a06c3f27, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4690285181748556714, guid: f3da94cc87fa6f94ab26f8e1a06c3f27, type: 3}
       propertyPath: m_LocalScale.x
@@ -179,6 +233,10 @@ PrefabInstance:
       propertyPath: BuildingHealth
       value: 
       objectReference: {fileID: 8290507837845570198}
+    - target: {fileID: 7768390763381639949, guid: f3da94cc87fa6f94ab26f8e1a06c3f27, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

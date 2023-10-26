@@ -42,6 +42,7 @@ public class Enemy : MonoBehaviour
         }
         else
         {
+            //giu nguyen vi tri  neu ko co muc tieu trong tam
             target = transform;
         }
 
@@ -60,6 +61,7 @@ public class Enemy : MonoBehaviour
         else
         {
             CheckTarget();
+            
         }
 
         // Debug.Log(BuildingManager.Instance.getCastleCenter());     

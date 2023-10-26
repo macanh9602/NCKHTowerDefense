@@ -13,7 +13,7 @@ public class CoinManager : MonoBehaviour
     public void Awake()
     {
         Instance = this;
-        _coin[resource] = 1;
+        _coin[resource] = 5;
     }
     public void Start()
     {

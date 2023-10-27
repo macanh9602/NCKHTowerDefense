@@ -4,5 +4,5 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "SO/buildingType/FarmHouse")]
 public class FarmHouseSO : BuildingTypeSO
 {
-    
+
 }

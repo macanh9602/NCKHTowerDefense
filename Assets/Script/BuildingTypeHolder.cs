@@ -10,12 +10,6 @@ public class BuildingTypeHolder : MonoBehaviour
     [SerializeField] BuildingTypeSO buildingType;
     ResourceSO resource;
     [SerializeField] bool IsPress = false;
-    //[SerializeField] GhostManager ghostManager;
-
-    //[SerializeField] Transform circleLoading;
-
-    //public event EventHandler OnStandBuilding;
-
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -50,10 +44,6 @@ public class BuildingTypeHolder : MonoBehaviour
                 }
                          
             }
-            else
-            {
-                //OnStandBuilding = null;
-            }
         }
        
     }
@@ -62,8 +52,8 @@ public class BuildingTypeHolder : MonoBehaviour
         if (collision.tag == "Player")
         {
             BuildingManager.Instance.setCurrentBuildingTypeSO(null);
-            //OnStandBuilding = null;
         }
     }
+
     
 }

@@ -10,22 +10,19 @@ public class CoinGenerator : MonoBehaviour
     private void Start()
     {
         time = coinData.timeMax;
+
     }
     private void Update()
     {
-        if (buildingType.nameBuilding == "House")
+        time -= Time.deltaTime;
+        if (time < 0)
         {
-            time -= Time.deltaTime;
-            if (time < 0)
+            time = coinData.timeMax;
+            if (coinData.resource != null)
             {
-                time = coinData.timeMax;
-                if (coinData.resource != null)
-                {
-                    CoinManager.Instance.addCoin(coinData.resource, buildingType);
-                }
-
+                CoinManager.Instance.addCoin(coinData.resource, buildingType);
             }
+
         }
-        
     }
 }

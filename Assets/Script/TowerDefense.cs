@@ -1,84 +1,150 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class TowerDefense : MonoBehaviour
 {
-    public Transform arrowStartPos;
-    public float time;
-    [SerializeField] float timeMax;
+    //public Transform arrowStartPos;
 
-    public float time1;
-    [SerializeField] float timeMax1;
+    //public float timeCheck; // time check enemy
+    //[SerializeField] float timeCheckMax = .2f;
 
-    [SerializeField] TowerDefenseSO tower;
-    [SerializeField] Transform arrowPos;
+    //public float timeSpeed;
+    //public float timeSpeedMax;
 
-    private Enemy enemyTarget;
-    //private Vector3?abc;
+    //[SerializeField] TowerDefenseSO tower;
+    //[SerializeField] Transform arrowPos;
+
+    //private Enemy enemyTarget;
+    ////private Vector3?abc;
+    //private void Start()
+    //{
+    //    timeCheck = timeCheckMax;
+    //    tower = GetComponent<ThisTypeOfBuilding>().towerDefense;
+    //    timeSpeedMax = tower.SpawnArrowPerTime;
+    //}
+    //private void Update()
+    //{
+    //    //check target
+    //    CheckEnemy();      
+    //    //if target !null thi  create arrow
+    //    // create arrow
+    //    DoCreate();          
+    //}
+    //public void CheckEnemy()
+    //{
+    //    Collider2D[] colliders;
+    //    timeCheck -= Time.deltaTime;
+    //    if (timeCheck < 0)
+    //    { 
+    //        //phat hien cac enemy moi 0.2f
+    //        colliders = Physics2D.OverlapCircleAll(transform.position, tower.radiusATK, LayerMask.GetMask("Monster"));
+    //        foreach(Collider2D collider in colliders)
+    //        {
+    //            Enemy enemy = collider.GetComponent<Enemy>();
+    //            if(enemy is not null)
+    //            {
+    //                enemyTarget = enemy;
+    //            }
+    //            //else
+    //            //{
+    //            //    //lam cai j
+    //            //    //enemyTarget co gia tri
+    //            //}
+
+    //        }
+    //        timeCheck += timeCheckMax;
+    //    }
+    //}
+    //public void DoCreate()
+    //{
+    //    if (enemyTarget is not null)
+    //    {
+    //        timeSpeed -= Time.deltaTime;
+    //        timeSpeed = Mathf.Clamp(timeSpeed ,0,timeSpeedMax);
+    //        if((timeSpeed <= 0))
+    //        {
+    //            //sinh mui ten
+    //            ArrowController.Create(arrowPos.position, enemyTarget);
+    //            timeSpeed += timeSpeedMax;
+    //        }
+
+    //    }
+    //}
+
+    //check enemy
+    //sinh arrow
+    Enemy targetEnemy;
+    TowerDefenseSO tower;
+    private float timeCheck;
+    private float timeCheckMax = .2f;
+
+    private float timeSpawnDistance;
+    private float timeSpawnDistanceMax;
+
+    [SerializeField] Transform PosSpawn;
     private void Start()
     {
-        timeMax = 0.2f;
-        time = timeMax;
-
-        timeMax1 = 0.5f;
-        time1 = 0;
         tower = GetComponent<ThisTypeOfBuilding>().towerDefense;
-       // tower = transform.gameObject.GetComponent<CoinGenerator>().buildingType;
-       //if(abc != null)
-       // {
-       //     abc = null;
-       // }
-       // Vector3 a = abc.Value;
     }
-    private void Update()
+    public void Update()
     {
-
-        //check target
-        //if target !null thi  create arrow
-        // create arrow
-        time -= Time.deltaTime;
-        if (time < 0)
-        {
-            time = timeMax;
-            //Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, );
-            CheckEnemy();
-        }
-        DoCreate();
-
+        timeSpawnDistanceMax = tower.SpawnArrowPerTime;
+        CheckEnemy();
+        SpawnArrow();
     }
     public void CheckEnemy()
     {
-        //phat hien cac enemy moi 0.2f
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, tower.radiusATK, LayerMask.GetMask("Monster"));
-        if (colliders.Length > 0)
+        timeCheck -= Time.deltaTime;
+        if(timeCheck <= timeCheckMax)
         {
-            if(enemyTarget = null)
+            timeCheck += timeCheckMax;
+            //check now
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, tower.radiusATK, LayerMask.GetMask("Monster"));
+            //tao vong lap cac colli enemy
+            foreach(Collider2D collider in colliders)
             {
-                enemyTarget = colliders[0].gameObject.GetComponent<Enemy>();
-            } 
+                //tao enemy moi , gan no voi collider
+                Enemy enemy = collider.gameObject.GetComponent<Enemy>();
+                //gan enemyTarget vao 1 trong enemy tuong ung collider trong colliders[] theo dk
+                //if(enemy is null)
+                //{
+                    //chua co thi gan
+                    targetEnemy = enemy;
+                //}
+                //else
+                //{
+                //    //khoang cach voi doi tuong voi target thu i
+                //    float iDistance = Vector3.Distance(transform.position , targetEnemy.transform.position);
+                //    //khoang cach voi doi tuong voi target thu j
+                //    float jDistance = Vector3.Distance(transform.position , enemy.transform.position);
+                //    //co roi thi thay doi theo dieu kien la khoang cach
+                //    if(jDistance < iDistance)
+                //    {
+                //        targetEnemy = enemy;
+                //    }
+                //}
+            }
+
+            
         }
     }
-    public void DoCreate()
+    public void SpawnArrow()
     {
-        if (enemyTarget != null)
+        if (targetEnemy is not null)
         {
-            time1 -= Time.deltaTime;
-            time1 = Mathf.Clamp(time1, 0, timeMax1);
-
-            if (time1 == 0)
+            timeSpawnDistance -= Time.deltaTime;
+            if (timeSpawnDistance <= 0)
             {
-                time1 = timeMax1;
-                //sinh mui ten
-                ArrowController.Create(arrowPos.position, enemyTarget);
+                timeSpawnDistance = timeSpawnDistanceMax;
+                //sinh now
+                ArrowController.Create(PosSpawn.position, targetEnemy);
             }
         }
-        else
-        {
-            enemyTarget.transform.position = arrowStartPos.position;
-            ArrowController.Create(arrowPos.position, enemyTarget);
-        }
-            
+        
     }
 }
+

@@ -31,7 +31,9 @@ public class CoinManager : MonoBehaviour
     }
     public void UseMoneyToBuild(ResourceSO resource, BuildingTypeSO buildingType)
     {
-        _coin[resource] -= buildingType.costToBuildOrUpgrate;       
+        _coin[resource] -= buildingType.costToBuildOrUpgrate;
+        OnChangeCoin?.Invoke(this, EventArgs.Empty);
+        Debug.Log(_coin[resource]);
     }
     public ResourceSO GetResourceSO()
     {

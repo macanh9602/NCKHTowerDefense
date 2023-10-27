@@ -22,4 +22,5 @@ MonoBehaviour:
   timeBuild: 3
   atk: 20
   armor: 35
-  radiusATK: 10
+  radiusATK: 5
+  SpawnArrowPerTime: 1

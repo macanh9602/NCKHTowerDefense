@@ -19,6 +19,7 @@ public class ArrowController : MonoBehaviour
     float speed = 5f;
     Vector3 normalize;
     private float time = 2f;
+    [SerializeField] float damage;
     public void setEnemy(Enemy enemy)
     {
         this.enemy = enemy;
@@ -54,9 +55,13 @@ public class ArrowController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Monster")
-        {
-            Destroy(gameObject );
+
+        if(collision.gameObject.tag == enemy.gameObject.tag)
+        {            
+            HealthSysterm health = collision.GetComponent<HealthSysterm>();
+            health.OnDamage(damage);
+            health.IsHealthChange();
+            Debug.Log("hha");
         }
     }
     private void SetTimeToDestroy()

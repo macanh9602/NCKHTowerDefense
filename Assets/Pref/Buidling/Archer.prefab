@@ -129,7 +129,6 @@ GameObject:
   - component: {fileID: -4996556400218750482}
   - component: {fileID: 1548150295356783619}
   - component: {fileID: 2454986992339214527}
-  - component: {fileID: -6062835646544019164}
   m_Layer: 6
   m_Name: Archer
   m_TagString: Untagged
@@ -282,6 +281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1881ccf6c7397f419f996a6f5418b54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthMax: 150
 --- !u!114 &2454986992339214527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -295,19 +295,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PosSpawn: {fileID: 5990093767776298955}
---- !u!114 &-6062835646544019164
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3034630073363589033}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93d3bd1226bfe134d96e4e8c6ee792a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  towerDefense: {fileID: 11400000, guid: 81e017d1736c7ca48980901efa8ef280, type: 2}
 --- !u!1 &4785236097377277355
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,6 +523,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7058987604830397140, guid: f3da94cc87fa6f94ab26f8e1a06c3f27, type: 3}
+      propertyPath: type
+      value: 
+      objectReference: {fileID: 1548150295356783619}
     - target: {fileID: 7058987604830397140, guid: f3da94cc87fa6f94ab26f8e1a06c3f27, type: 3}
       propertyPath: BuildingHealth
       value: 

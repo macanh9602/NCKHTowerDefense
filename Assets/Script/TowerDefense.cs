@@ -83,16 +83,16 @@ public class TowerDefense : MonoBehaviour
     private float timeCheckMax = .2f;
 
     private float timeSpawnDistance;
-    private float timeSpawnDistanceMax;
+    private float timeSpawnDistanceMax = .7f;
 
     [SerializeField] Transform PosSpawn;
     private void Start()
     {
-        tower = GetComponent<ThisTypeOfBuilding>().towerDefense;
+        //tower = GetComponent<ThisTypeOfBuilding>().towerDefense;
     }
     public void Update()
     {
-        timeSpawnDistanceMax = tower.SpawnArrowPerTime;
+        //timeSpawnDistanceMax = tower.SpawnArrowPerTime;
         CheckEnemy();
         SpawnArrow();
     }
@@ -103,7 +103,7 @@ public class TowerDefense : MonoBehaviour
         {
             timeCheck += timeCheckMax;
             //check now
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, tower.radiusATK, LayerMask.GetMask("Monster"));
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 7f, LayerMask.GetMask("Monster"));
             //tao vong lap cac colli enemy
             foreach(Collider2D collider in colliders)
             {

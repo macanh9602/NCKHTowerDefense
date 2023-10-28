@@ -12,11 +12,8 @@ public class Enemy : MonoBehaviour
         Transform prfEnemy = Resources.Load<Transform>("Ghost").transform;
         Transform _enemy = Instantiate(prfEnemy, position, Quaternion.identity);
         Enemy enemy = _enemy.gameObject.GetComponent<Enemy>();
-        //if (BuildingManager.Instance.getCastleCenter() != null)
-        //{
         enemy.CheckTarget();
         enemy.FlipFace(_enemy);
-        //}
         return enemy;
     }
 
@@ -25,12 +22,6 @@ public class Enemy : MonoBehaviour
     //public bool IsDestroy = false;
     private void Start ()
     {
-        //if (BuildingManager.Instance.getCastleCenter() != null)
-        //{
-        //    target = BuildingManager.Instance.getCastleCenter().transform.position;
-        //    Debug.Log(target);
-        //}
-        //CheckTarget();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -46,13 +37,11 @@ public class Enemy : MonoBehaviour
             //giu nguyen vi tri  neu ko co muc tieu trong tam
             target = transform;
         }
-
         Debug.Log(target.gameObject.name);
     }
 
     private void Update()
-    {
-        
+    {       
         if(target != null)
         {
             Vector3 vectorNormalize = (target.position - transform.position).normalized;
@@ -64,22 +53,21 @@ public class Enemy : MonoBehaviour
             CheckTarget();
             
         }
-
         // Debug.Log(BuildingManager.Instance.getCastleCenter());     
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == 6)
         {
-            BuildingHealth buildinghealth = collision.gameObject.GetComponent<BuildingHealth>();
-            buildinghealth.OnDamage(20f);
-            buildinghealth.IsHealthChange();
+            HealthSysterm health = collision.gameObject.GetComponent<HealthSysterm>();
+            health.OnDamage(20f);
+            health.IsHealthChange();
 
             Destroy(gameObject);
-           // isdestroy = true;
+            // isdestroy = true;
         }
     }
-   
+
     public void FlipFace(Transform enemy)
     {
         if (enemy.position.x - target.position.x < 0)

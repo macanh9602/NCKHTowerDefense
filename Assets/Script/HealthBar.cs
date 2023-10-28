@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using TreeEditor;
 using UnityEngine;
 
-public class HealthManager : MonoBehaviour
+public class HealthBar : MonoBehaviour
 {
-    [SerializeField] BuildingHealth BuildingHealth;
+    [SerializeField] HealthSysterm type;
     private void Start()
     {
-        BuildingHealth.OnHealthChange += BuildingHealth_OnHealthChange;
+        type.OnHealthChange += BuildingHealth_OnHealthChange;
     }
 
     private void BuildingHealth_OnHealthChange(object sender, System.EventArgs e)
@@ -19,7 +19,7 @@ public class HealthManager : MonoBehaviour
     public void EditHealthBar()
     {
         
-        transform.Find("Bar").localScale =  new Vector3( BuildingHealth.getHealthNormalize(),1,1);
+        transform.Find("Bar").localScale =  new Vector3(type.getHealthNormalize(),1,1);
     }
 
 

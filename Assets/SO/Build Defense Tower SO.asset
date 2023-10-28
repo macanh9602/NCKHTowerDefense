@@ -23,4 +23,4 @@ MonoBehaviour:
   atk: 20
   armor: 35
   radiusATK: 5
-  SpawnArrowPerTime: 1
+  SpawnArrowPerTime: 0.3

@@ -129,7 +129,11 @@ public class TowerDefense : MonoBehaviour
                 //}
             }
 
-            
+            //if(colliders.Length > 0 )
+            //{
+            //    targetEnemy = colliders[0].gameObject.GetComponent<Enemy>();
+            //}
+
         }
     }
     public void SpawnArrow()

@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour
         if(target != null)
         {
             Vector3 vectorNormalize = (target.position - transform.position).normalized;
-            float speed = 2f;
+            float speed = 0.5f;
             rb.velocity = vectorNormalize * speed;
         }
         else
@@ -72,7 +72,7 @@ public class Enemy : MonoBehaviour
     {
         if (enemy.position.x - target.position.x < 0)
         {
-            enemy.gameObject.GetComponent<Transform>().rotation = Quaternion.Euler(0, 180, 0);
+            enemy.transform.Find("sprite").GetComponent<Transform>().rotation = Quaternion.Euler(0, 180, 0);
         }
     }
     

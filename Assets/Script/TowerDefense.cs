@@ -7,74 +7,6 @@ using UnityEngine.Rendering;
 
 public class TowerDefense : MonoBehaviour
 {
-    //public Transform arrowStartPos;
-
-    //public float timeCheck; // time check enemy
-    //[SerializeField] float timeCheckMax = .2f;
-
-    //public float timeSpeed;
-    //public float timeSpeedMax;
-
-    //[SerializeField] TowerDefenseSO tower;
-    //[SerializeField] Transform arrowPos;
-
-    //private Enemy enemyTarget;
-    ////private Vector3?abc;
-    //private void Start()
-    //{
-    //    timeCheck = timeCheckMax;
-    //    tower = GetComponent<ThisTypeOfBuilding>().towerDefense;
-    //    timeSpeedMax = tower.SpawnArrowPerTime;
-    //}
-    //private void Update()
-    //{
-    //    //check target
-    //    CheckEnemy();      
-    //    //if target !null thi  create arrow
-    //    // create arrow
-    //    DoCreate();          
-    //}
-    //public void CheckEnemy()
-    //{
-    //    Collider2D[] colliders;
-    //    timeCheck -= Time.deltaTime;
-    //    if (timeCheck < 0)
-    //    { 
-    //        //phat hien cac enemy moi 0.2f
-    //        colliders = Physics2D.OverlapCircleAll(transform.position, tower.radiusATK, LayerMask.GetMask("Monster"));
-    //        foreach(Collider2D collider in colliders)
-    //        {
-    //            Enemy enemy = collider.GetComponent<Enemy>();
-    //            if(enemy is not null)
-    //            {
-    //                enemyTarget = enemy;
-    //            }
-    //            //else
-    //            //{
-    //            //    //lam cai j
-    //            //    //enemyTarget co gia tri
-    //            //}
-
-    //        }
-    //        timeCheck += timeCheckMax;
-    //    }
-    //}
-    //public void DoCreate()
-    //{
-    //    if (enemyTarget is not null)
-    //    {
-    //        timeSpeed -= Time.deltaTime;
-    //        timeSpeed = Mathf.Clamp(timeSpeed ,0,timeSpeedMax);
-    //        if((timeSpeed <= 0))
-    //        {
-    //            //sinh mui ten
-    //            ArrowController.Create(arrowPos.position, enemyTarget);
-    //            timeSpeed += timeSpeedMax;
-    //        }
-
-    //    }
-    //}
-
     //check enemy
     //sinh arrow
     Enemy targetEnemy;
@@ -103,7 +35,7 @@ public class TowerDefense : MonoBehaviour
         {
             timeCheck += timeCheckMax;
             //check now
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 7f, LayerMask.GetMask("Monster"));
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 3f, LayerMask.GetMask("Monster"));
             //tao vong lap cac colli enemy
             foreach(Collider2D collider in colliders)
             {

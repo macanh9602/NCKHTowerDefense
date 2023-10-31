@@ -47,6 +47,7 @@ public class ArrowController : MonoBehaviour
         //dich chuyen theo farme
         transform.position += normalize * speed * Time.deltaTime;
     }
+    
     public void ChangeRotation()
     {
         float zIndex = Mathf.Atan2(normalize.y, normalize.x) * Mathf.Rad2Deg;
@@ -70,6 +71,8 @@ public class ArrowController : MonoBehaviour
         if (time < 0)
         {
             Destroy(gameObject);
+            
         }
     }
+    //hello
 }

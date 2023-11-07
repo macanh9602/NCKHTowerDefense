@@ -15,9 +15,10 @@ public class TowerDefense : MonoBehaviour
     private float timeCheckMax = .2f;
 
     private float timeSpawnDistance;
-    private float timeSpawnDistanceMax = .7f;
+    private float timeSpawnDistanceMax = .4f;
 
     [SerializeField] Transform PosSpawn;
+    public bool CanSeeEnemy = false;
     private void Start()
     {
         //tower = GetComponent<ThisTypeOfBuilding>().towerDefense;
@@ -26,7 +27,11 @@ public class TowerDefense : MonoBehaviour
     {
         //timeSpawnDistanceMax = tower.SpawnArrowPerTime;
         CheckEnemy();
-        SpawnArrow();
+        if(CanSeeEnemy == true)
+        {
+            SpawnArrow();
+        }
+        
     }
     public void CheckEnemy()
     {
@@ -36,29 +41,31 @@ public class TowerDefense : MonoBehaviour
             timeCheck += timeCheckMax;
             //check now
             Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 3f, LayerMask.GetMask("Monster"));
+            CanSeeEnemy = colliders.Length > 0 ? true : false;
             //tao vong lap cac colli enemy
-            foreach(Collider2D collider in colliders)
+            foreach (Collider2D collider in colliders)
             {
                 //tao enemy moi , gan no voi collider
                 Enemy enemy = collider.gameObject.GetComponent<Enemy>();
+
                 //gan enemyTarget vao 1 trong enemy tuong ung collider trong colliders[] theo dk
-                //if(enemy is null)
-                //{
+                if (colliders[0].gameObject.GetComponent<Enemy>() == enemy)
+                {
                     //chua co thi gan
                     targetEnemy = enemy;
-                //}
-                //else
-                //{
+                }
+                else
+                {
                 //    //khoang cach voi doi tuong voi target thu i
-                //    float iDistance = Vector3.Distance(transform.position , targetEnemy.transform.position);
+                    float iDistance = Vector3.Distance(transform.position , targetEnemy.transform.position);
                 //    //khoang cach voi doi tuong voi target thu j
-                //    float jDistance = Vector3.Distance(transform.position , enemy.transform.position);
+                    float jDistance = Vector3.Distance(transform.position , enemy.transform.position);
                 //    //co roi thi thay doi theo dieu kien la khoang cach
-                //    if(jDistance < iDistance)
-                //    {
-                //        targetEnemy = enemy;
-                //    }
-                //}
+                    if(jDistance < iDistance)
+                    {
+                        targetEnemy = enemy;
+                    }
+                }
             }
 
             //if(colliders.Length > 0 )
@@ -70,7 +77,7 @@ public class TowerDefense : MonoBehaviour
     }
     public void SpawnArrow()
     {
-        if (targetEnemy is not null)
+        if (targetEnemy is not null )
         {
             timeSpawnDistance -= Time.deltaTime;
             if (timeSpawnDistance <= 0)
@@ -78,6 +85,7 @@ public class TowerDefense : MonoBehaviour
                 timeSpawnDistance = timeSpawnDistanceMax;
                 //sinh now
                 ArrowController.Create(PosSpawn.position, targetEnemy);
+                Debug.Log("k");
             }
         }
         

@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour
         if(target != null)
         {
             Vector3 vectorNormalize = (target.position - transform.position).normalized;
-            float speed = 0.5f;
+            float speed = 0.3f;
             rb.velocity = vectorNormalize * speed;
         }
         else

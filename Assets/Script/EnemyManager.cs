@@ -18,7 +18,7 @@ public class EnemyManager : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             enemyType = listEnemy.enemyList[0];
-            Enemy.Create(Extension.MousePosition() + Extension.RandomPos() , enemyType);
+            Enemy.Create(Extension.MousePosition()  , enemyType);
         } 
     }
 }

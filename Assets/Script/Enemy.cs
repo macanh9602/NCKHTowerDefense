@@ -7,10 +7,10 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public static Enemy Create(Vector3 position, EnemyTypeSO enemyType)
+    public static Enemy Create(Vector3 position , EnemyTypeSO enemyType)
     {
         Transform prfEnemy = Resources.Load<Transform>("Ghost").transform;
-        Transform _enemy = Instantiate(prfEnemy, position, Quaternion.identity);
+        Transform _enemy = Instantiate(prfEnemy, position + Extension.RandomPos(), Quaternion.identity);
         Enemy enemy = _enemy.gameObject.GetComponent<Enemy>();
         enemy.CheckTarget();
         enemy.FlipFace(_enemy);

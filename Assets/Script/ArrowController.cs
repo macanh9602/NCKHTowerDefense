@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//using DG.Tweening;
 public class ArrowController : MonoBehaviour
 {
     public static ArrowController Create(Vector3 position ,Enemy enemy)
@@ -102,5 +101,4 @@ public class ArrowController : MonoBehaviour
             
         }
     }
-    //hello
 }

@@ -18,7 +18,7 @@ MonoBehaviour:
   costToBuildOrUpgrate: 3
   health: 300
   sprite:
-  - {fileID: 788780676, guid: 748b52b8d04cdd144ac174824f4dd8fd, type: 3}
+  - {fileID: -522496355, guid: 3285dc2f7f4985341a37ce20d646cf33, type: 3}
   timeBuild: 3
   atk: 20
   armor: 35

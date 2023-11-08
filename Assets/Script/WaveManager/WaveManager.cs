@@ -9,8 +9,7 @@ public class WaveManager : MonoBehaviour
     [Tooltip("CurrentWave")]
     public int waveNumber = -1;
     public int waveCount => waves.Count;
-    public float WaveBeforeNextWave = 20f;
-
+    public float WaitBeforeNextWave = 20f;
     private void Start()
     {
         waveNumber += 1;
@@ -18,7 +17,17 @@ public class WaveManager : MonoBehaviour
     }
     private void Update()
     {
+        if(waveNumber >= waveCount)
+        {
+            //stop
+        }
+        WaitBeforeNextWave -= Time.deltaTime;
+        while(WaitBeforeNextWave > 0)
+        {
+            return;
+        }
         StartSpawnWave(waveNumber);
+
     }
     public void StartSpawnWave(int index)
     {

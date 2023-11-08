@@ -16,23 +16,25 @@ public class Spawn
     [Tooltip("enemyAmount")]
     public int enemyAmount;
     private int enemyBornAmount;
-    public int enemyDieAmount;
+    private int enemyDieAmount;
     private int enemyRemainAmount;
     [Tooltip("EnemiesPerSecond")]
-    public float EnemiesPerSecond = 2f;
+    public float EnemiesPerSecond ;    
     [Tooltip("position spawn")]
     public Transform PosSpawn;
+    private float TimeNextSpawn;
     //Random rnd = new Random();
 
 
     public void Update()
     {
-        EnemiesPerSecond -= Time.deltaTime;
-        while(EnemiesPerSecond > 0)
+        
+        TimeNextSpawn -= Time.deltaTime;
+        while(TimeNextSpawn > 0)
         {
             return;
         }
-        EnemiesPerSecond = 2f;
+        TimeNextSpawn = EnemiesPerSecond;
         if(enemyBornAmount < enemyAmount )
         {
             Enemy enemy = Enemy.Create(PosSpawn.position, enemyTypeSO);
@@ -40,30 +42,9 @@ public class Spawn
         }
 
 
-        //for(int i = 0; i < enemyAmount; i++)
-        //{          
-        //    EnemiesPerSecond -= Time.deltaTime;
-        //    if(EnemiesPerSecond <0 )
-        //    {
-        //        EnemiesPerSecond = 1f;
-        //        if(enemyBornAmount == enemyAmount)
-        //        {
-        //            return;
-        //        }
-        //        else
-        //        {
-        //            Enemy enemy = Enemy.Create(PosSpawn.position, enemyTypeSO);
-
-        //            enemyBornAmount++;
-        //        }         
-        //        Debug.Log("enemyBorn" + enemyBornAmount);
-        //    }
-
-        //}
     }
     public void resetAtributeEnemies()
     {
-        //khi nghuoi choi xong wave
-         //khi wa        
+     
     }
 }

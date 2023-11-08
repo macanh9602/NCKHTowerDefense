@@ -456,9 +456,12 @@ MonoBehaviour:
   - lstSpawn:
     - enemyTypeSO: {fileID: 11400000, guid: 55064e14c912def47ba12a6431e9a253, type: 2}
       enemyAmount: 5
-      enemyDieAmount: 0
       EnemiesPerSecond: 2
       PosSpawn: {fileID: 426884652}
+    - enemyTypeSO: {fileID: 11400000, guid: 019c90c33a2530f418dd902b75fe95df, type: 2}
+      enemyAmount: 7
+      EnemiesPerSecond: 3
+      PosSpawn: {fileID: 291961068}
   waveNumber: -1
   WaveBeforeNextWave: 2
 --- !u!1 &202594407

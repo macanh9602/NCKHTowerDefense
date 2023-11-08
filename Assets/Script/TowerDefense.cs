@@ -85,7 +85,7 @@ public class TowerDefense : MonoBehaviour
                 timeSpawnDistance = timeSpawnDistanceMax;
                 //sinh now
                 ArrowController.Create(PosSpawn.position, targetEnemy);
-                Debug.Log("k");
+                //Debug.Log("k");
             }
         }
         

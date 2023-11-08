@@ -15,7 +15,7 @@ public static class Extension
     public static Vector3 RandomPos()
     {
         return new Vector3(
-            Random.Range(-1, 1),
-            Random.Range(-1, 1));
+            Random.Range(-2, 2),
+            Random.Range(-2, 2));
     }
 }

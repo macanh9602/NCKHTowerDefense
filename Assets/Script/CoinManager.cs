@@ -33,7 +33,7 @@ public class CoinManager : MonoBehaviour
     {
         _coin[resource] -= buildingType.costToBuildOrUpgrate;
         OnChangeCoin?.Invoke(this, EventArgs.Empty);
-        Debug.Log(_coin[resource]);
+        //Debug.Log(_coin[resource]);
     }
     public ResourceSO GetResourceSO()
     {

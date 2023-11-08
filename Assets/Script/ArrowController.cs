@@ -10,7 +10,7 @@ public class ArrowController : MonoBehaviour
         ArrowController _arrow = arrow.GetComponent<ArrowController>();
         _arrow.setEnemy(enemy);
         _arrow.setPos(position);
-        Debug.Log(arrow.position + " va" + position);
+        //Debug.Log(arrow.position + " va" + position);
         return _arrow;
         
     }
@@ -39,7 +39,7 @@ public class ArrowController : MonoBehaviour
     {
         //di chuyen
         Move();
-        Debug.Log(lastEnemyPosition);
+        //Debug.Log(lastEnemyPosition);
         //dich chuyen theo farme
         transform.position += normalize * speed * Time.deltaTime;
         ChangeRotation();
@@ -86,7 +86,7 @@ public class ArrowController : MonoBehaviour
                 HealthSysterm health = collision.GetComponent<HealthSysterm>();
                 health.OnDamage(damage);
                 health.IsHealthChange();
-                Debug.Log("hha");
+                //Debug.Log("hha");
                 Destroy(gameObject);
             }
         }

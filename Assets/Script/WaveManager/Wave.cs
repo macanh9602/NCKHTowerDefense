@@ -6,7 +6,20 @@ using UnityEngine;
 [Serializable]
 public class Wave
 {
-    public List<Spawn> lstEnemies;
+    [Header("Reference")]
+    [Tooltip("List enemies spawn in this wave")]
+    [SerializeField][NonReorderable] List<Spawn> lstSpawn;
+    private float TimeWaitToNextSpawn = 2f;
+    public void Update()
+    {
+        for(int i = 0; i < lstSpawn.Count; i++)
+        {
+            lstSpawn[i].Update();
+            Debug.Log("halo2");
+            
+        }
+       
+    }
 
    
 }

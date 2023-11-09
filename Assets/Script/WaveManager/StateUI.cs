@@ -20,7 +20,7 @@ public class StateUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     { // chua tao event 
-        state.text = "State " + manager.GetState().ToString();
+        state.text = "State " + manager.state;
         WaveNumber.text = "Wave " + manager.waveNumber.ToString();
         float index = Mathf.Round(manager.WaitBeforeNextWave * 10f) * 0.1f;
         if(index != 20f)

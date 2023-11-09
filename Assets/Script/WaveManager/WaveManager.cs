@@ -10,7 +10,7 @@ public class WaveManager : MonoBehaviour
         WaitForNextWave,
         SpawnEnemy
     }
-    private State state;
+    public State state;
     [Tooltip("List wave in this scene")]
     //[SerializeField][NonReorderable] List<Wave> waves = new List<Wave>();
     //[Tooltip("CurrentWave")]
@@ -64,10 +64,6 @@ public class WaveManager : MonoBehaviour
         WaitBeforeNextWave = 20f;
         RemainEnemyAmount = 5f;
         state = State.SpawnEnemy;
-    }
-    public State GetState()
-    {
-        return state;
     }
     //private void Start()
     //{

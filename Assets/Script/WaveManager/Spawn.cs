@@ -22,7 +22,7 @@ public class Spawn
     public float EnemiesPerSecond ;    
     [Tooltip("position spawn")]
     public Transform PosSpawn;
-    private float TimeNextSpawn;
+    public float TimeNextSpawn;
     //Random rnd = new Random();
 
 

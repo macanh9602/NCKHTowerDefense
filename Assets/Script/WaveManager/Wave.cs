@@ -9,17 +9,17 @@ public class Wave
     [Header("Reference")]
     [Tooltip("List enemies spawn in this wave")]
     [SerializeField][NonReorderable] List<Spawn> lstSpawn;
-    private float TimeWaitToNextSpawn = 10f;
+    public float TimeWaitToNextSpawn = 10f;
     public void Update()
     {
         for(int i = 0; i < lstSpawn.Count; i++)
         {
-            while(TimeWaitToNextSpawn > 0)
+            lstSpawn[i].Update();
+            while (TimeWaitToNextSpawn > 0)
             {
+                Debug.Log("halo2");
                 TimeWaitToNextSpawn -= Time.deltaTime;
             }
-            lstSpawn[i].Update();
-            Debug.Log("halo2");
             TimeWaitToNextSpawn = 10f;
 
         }
